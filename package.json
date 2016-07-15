@@ -1,0 +1,14 @@
+{
+  "name": "repuestos",
+  "version": "1.0.0",
+  "description": "Aplicacion para seguimiento de pedidos de repuestos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Quadri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

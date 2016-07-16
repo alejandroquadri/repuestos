@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>Pedido de repuestos</h1>
+
+  <form ng-submit="submit()" name="form">
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label for="tipoItem">Tipo Item</label>
+        <select class="form-control" id="tipoItem" name="tipoItem" ng-model="formulario.tipoItem">
+          <option>tuerca</option>
+          <option>llave</option>
+          <option>valvula</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="detalle">Detalle</label>
+        <select class="form-control" id="detalle" ng-model="formulario.detalle">
+          <option>esferica</option>
+          <option>chica</option>
+          <option>grande</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label for="destino">Destino</label>
+        <select class="form-control" id="destino" ng-model="formulario.destino">
+          <option>1440</option>
+          <option>650</option>
+          <option>Breton</option>
+          <option>Lineal</option>
+          <option>Taller</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="proveedor">Proveedor</label>
+        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor">
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="form-group col-md-3">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" ng-model="formulario.cantidad">
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="unidad">Unidad</label>
+        <select class="form-control" id="unidad" ng-model="formulario.unidad">
+          <option >unidad</option>
+          <option >ml</option>
+          <option >l</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="muestra">Muestra</label>
+        <select class="form-control" id="muestra" ng-model="formulario.muestra">
+          <option value="si">si</option>
+          <option value="no">no</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="encargado">¿Encargado?</label>
+        <select class="form-control" id="encargado" ng-model="formulario.encargado">
+          <option value="si">si</option>
+          <option value="no">no</option>
+        </select>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Tipo</th>
+        <th>Detalle</th>
+        <th>Cantidad</th>
+        <th>Unidad</th>
+        <th>Proveedor</th>
+        <th>Destino</th>
+        <th>Muestra</th>
+        <th>Encargado</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="repuesto in repuestos">
+        <td>{{repuesto.timestamp | date}}</td>
+        <td>{{repuesto.tipoItem}}</td>
+        <td>{{repuesto.detalle}}</td>
+        <td>{{repuesto.cantidad}}</td>
+        <td>{{repuesto.unidad}}</td>
+        <td>{{repuesto.proveedor}}</td>
+        <td>{{repuesto.destino}}</td>
+        <td>{{repuesto.muestra}}</td>
+        <td>{{repuesto.encargado}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

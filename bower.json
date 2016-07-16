@@ -1,0 +1,23 @@
+{
+  "name": "repuestos",
+  "description": "Aplicacion para seguimiento de pedidos de repuestos",
+  "main": "index.js",
+  "authors": [
+    "Alejandro Quadri"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alejandroquadri/repuestos",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "angularfire": "^2.0.1",
+    "bootstrap": "^3.3.6"
+  }
+}

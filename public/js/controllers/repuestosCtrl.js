@@ -1,18 +1,21 @@
 angular.module('RepuestosApp')
-.controller('Repuestos',function ($scope, base){
+.controller('Repuestos',function ($scope, base, dataForm){
 
   $scope.formulario = {};
   $scope.repuestos = base;
   $scope.tabla = false;
 
-  $scope.tipoStatus = ['Pendiente','Encargado','Completo','Suspendido'];
+  $scope.items = dataForm.items;
+  $scope.maquinas = dataForm.maquinas;
+  $scope.tipoStatus = dataForm.tipoStatus;
+  $scope.unidades = dataForm.unidades;
 
   $scope.submit = function () {
     var nuevo = {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
       tipoItem: $scope.formulario.tipoItem || "",
       detalle: $scope.formulario.detalle || "",
-      observacion: $scope.formulario.observacion || "",
+      //observacion: $scope.formulario.observacion || "",
       destino: $scope.formulario.destino || "",
       proveedor: $scope.formulario.proveedor || "",
       cantidad: $scope.formulario.cantidad || "",

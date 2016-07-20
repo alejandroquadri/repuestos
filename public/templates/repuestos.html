@@ -4,21 +4,9 @@
   <form ng-submit="submit()" name="form">
     <div class="row">
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label for="tipoItem">Tipo Item</label>
-        <select class="form-control" id="tipoItem" name="tipoItem" ng-model="formulario.tipoItem">
-          <option>tuerca</option>
-          <option>llave</option>
-          <option>valvula</option>
-        </select>
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="detalle">Detalle</label>
-        <select class="form-control" id="detalle" ng-model="formulario.detalle">
-          <option>esferica</option>
-          <option>chica</option>
-          <option>grande</option>
+        <select class="form-control" id="tipoItem" name="tipoItem" ng-model="formulario.tipoItem" ng-options="item for item in items | orderBy:'toString()'">
         </select>
       </div>
 
@@ -26,8 +14,8 @@
 
     <div class="row">
       <div class="form-group col-md-12">
-        <label for="observacion">Observacion</label>
-        <input type="text" class="form-control" id="observacion" ng-model="formulario.observacion">
+        <label for="detalle">Detalle</label>
+        <input type="text" class="form-control" id="detalle" ng-model="formulario.detalle">
       </div>
     </div>
 
@@ -35,12 +23,7 @@
 
       <div class="form-group col-md-6">
         <label for="destino">Destino</label>
-        <select class="form-control" id="destino" ng-model="formulario.destino">
-          <option>1440</option>
-          <option>650</option>
-          <option>Breton</option>
-          <option>Lineal</option>
-          <option>Taller</option>
+        <select class="form-control" id="destino" ng-model="formulario.destino" ng-options="maquina for maquina in maquinas | orderBy:'toString()'">
         </select>
       </div>
 
@@ -60,10 +43,7 @@
 
       <div class="form-group col-md-3">
         <label for="unidad">Unidad</label>
-        <select class="form-control" id="unidad" ng-model="formulario.unidad">
-          <option >unidad</option>
-          <option >ml</option>
-          <option >l</option>
+        <select class="form-control" id="unidad" ng-model="formulario.unidad" ng-options="unidad for unidad in unidades | orderBy:'toString()'">
         </select>
       </div>
 
@@ -77,10 +57,11 @@
     </div>
 
 
-    <button type="submit" class="btn btn-default">Aceptar</button>
+    <button type="submit" class="btn btn-primary">Aceptar</button>
   </form>
 
 </div>
+<br>
 
 <div class="container">
   <table class="table table-striped table-hover">

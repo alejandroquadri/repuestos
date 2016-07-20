@@ -63,23 +63,26 @@
 </div>
 <br>
 
-<div class="container">
+<div class="container" ng-show="tabla">
+  <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ search }}</p>
+  </div>
+
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>Fecha</th>
-        <th>Tipo</th>
-        <th>Detalle</th>
-        <th>Cantidad</th>
-        <th>Unidad</th>
-        <th>Proveedor</th>
-        <th>Destino</th>
-        <th>Muestra</th>
-        <th>Status</th>
+        <th ng-repeat="titulo in ['Fecha','Tipo','Detalle','Cantidad','Unidad','Proveedor','Destino','Muestra','Status']">
+          <a href="#" ng-click="sortType = 'timestamp'">
+            {{titulo}}
+            <span ng-show="sortType == 'timestamp'" class="fa fa-caret-down"></span>
+          </a>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="repuesto in repuestos">
+      <tr ng-repeat="repuesto in repuestos | orderBy:sortType:sortReverse">
         <td>{{repuesto.timestamp | date :  "dd/MM/yy"}}</td>
         <td>{{repuesto.tipoItem}}</td>
         <td>{{repuesto.detalle}}</td>

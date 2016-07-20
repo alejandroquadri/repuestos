@@ -1,9 +1,14 @@
 angular.module('RepuestosApp')
 .controller('Repuestos',function ($scope, base, dataForm){
 
+  $scope.tabla = false;
+  base.$loaded()
+  .then(function(x) {
+    $scope.tabla = true;
+  })
+
   $scope.formulario = {};
   $scope.repuestos = base;
-  $scope.tabla = false;
 
   $scope.items = dataForm.items;
   $scope.maquinas = dataForm.maquinas;
@@ -15,7 +20,6 @@ angular.module('RepuestosApp')
       timestamp: firebase.database.ServerValue.TIMESTAMP,
       tipoItem: $scope.formulario.tipoItem || "",
       detalle: $scope.formulario.detalle || "",
-      //observacion: $scope.formulario.observacion || "",
       destino: $scope.formulario.destino || "",
       proveedor: $scope.formulario.proveedor || "",
       cantidad: $scope.formulario.cantidad || "",
@@ -35,5 +39,9 @@ angular.module('RepuestosApp')
       console.log('salvado');
     })
   }
+
+  $scope.sortType = 'status'; // set the default sort type
+  $scope.sortReverse = false;  // set the default sort order
+  $scope.search = '';     // set the default search/filter term
 
 })

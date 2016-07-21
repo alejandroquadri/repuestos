@@ -49,6 +49,8 @@ angular.module('RepuestosApp')
 
     o.tipoStatus = ['Pendiente','Encargado','Completo','Suspendido'];
 
+    o.titulos = ['Fecha','Tipo','Detalle','Cantidad','Unidad','Proveedor','Destino','Muestra','Status']
+
     return o;
 
   })

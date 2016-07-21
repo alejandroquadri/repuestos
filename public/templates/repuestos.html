@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Pedido de repuestos</h1>
 
-  <form ng-submit="submit()" name="form">
+  <form focus ng-submit="submit()" name="form">
     <div class="row">
 
       <div class="form-group col-md-12">
         <label for="tipoItem">Tipo Item</label>
-        <select class="form-control" id="tipoItem" name="tipoItem" ng-model="formulario.tipoItem" ng-options="item for item in items | orderBy:'toString()'">
+        <select class="form-control" id="tipoItem" name="tipoItem" ng-model="formulario.tipoItem" ng-options="item for item in items | orderBy:'toString()'" autofocus required>
         </select>
       </div>
 
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="form-group col-md-12">
         <label for="detalle">Detalle</label>
-        <input type="text" class="form-control" id="detalle" ng-model="formulario.detalle">
+        <input type="text" class="form-control" id="detalle" name="detalle" ng-model="formulario.detalle" required>
       </div>
     </div>
 
@@ -23,13 +23,13 @@
 
       <div class="form-group col-md-6">
         <label for="destino">Destino</label>
-        <select class="form-control" id="destino" ng-model="formulario.destino" ng-options="maquina for maquina in maquinas | orderBy:'toString()'">
+        <select class="form-control" id="destino" name="destino" ng-model="formulario.destino" ng-options="maquina for maquina in maquinas | orderBy:'toString()'" required>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label for="proveedor">Proveedor</label>
-        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor">
+        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor" required>
       </div>
 
     </div>
@@ -38,18 +38,18 @@
 
       <div class="form-group col-md-3">
         <label for="cantidad">Cantidad</label>
-        <input type="number" class="form-control" id="cantidad" ng-model="formulario.cantidad">
+        <input type="number" class="form-control" id="cantidad" ng-model="formulario.cantidad" required>
       </div>
 
       <div class="form-group col-md-3">
         <label for="unidad">Unidad</label>
-        <select class="form-control" id="unidad" ng-model="formulario.unidad" ng-options="unidad for unidad in unidades | orderBy:'toString()'">
+        <select class="form-control" id="unidad" ng-model="formulario.unidad" ng-options="unidad for unidad in unidades | orderBy:'toString()'" required>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label for="muestra">Muestra</label>
-        <select class="form-control" id="muestra" ng-model="formulario.muestra">
+        <select class="form-control" id="muestra" ng-model="formulario.muestra" required>
           <option value="si">si</option>
           <option value="no">no</option>
         </select>
@@ -57,60 +57,73 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Aceptar</button>
+    <button type="submit" class="btn btn-primary"
+    ng-disabled="form.tipoItem.$invalid || form.detalle.$invalid || form.destino.$invalid" >
+    Aceptar</button>
   </form>
 
 </div>
 <br>
 
 <div class="container" ng-show="tabla">
-  <!-- <div class="alert alert-info">
-    <p>Sort Type: {{ sortType }}</p>
-    <p>Sort Reverse: {{ sortReverse }}</p>
-    <p>Search Query: {{ search }}</p>
-  </div> -->
 
   <form>
-   <div class="form-group">
-     <div class="input-group">
-       <div class="input-group-addon"><i class="fa fa-search"></i></div>
-       <input type="text" class="form-control" placeholder="Busqueda" ng-model="search">
-     </div>
-   </div>
+    <div class="row">
+      <div class="form-group">
 
-   <div class="form-group">
+        <div class="col-md-3">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="check.completo">
+              Completo
+            </label>
+          </div>
+        </div>
 
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="check.completo">
-        Completo
-      </label><br>
+        <div class="col-md-3">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="check.encargado">
+              Encargado
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="checkbox ">
+            <label>
+              <input type="checkbox" ng-model="check.suspendido">
+              Suspendido
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="checkbox ">
+            <label>
+              <input type="checkbox" ng-model="check.pendiente">
+              Pendiente
+            </label>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="check.encargado">
-        Encargado
-      </label>
+
+    <div class="row">
+      <div class="form-group row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Busqueda" ng-model="search">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="check.suspendido" >
-        Suspendido
-      </label>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" ng-model="check.pendiente">
-        Pendiente
-      </label>
-    </div>
-  </div>
+
 
  </form>
-
- <p>
-   {{check | json}}
- </p>
 
   <table class="table table-striped table-hover">
     <thead>

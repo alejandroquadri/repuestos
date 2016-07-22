@@ -1,6 +1,6 @@
 angular.module('RepuestosApp')
 .controller('Repuestos',function ($scope, base, dataForm, $filter){
-
+  $scope.formul = true;
   $scope.tabla = false;
   base.$loaded()
   .then(function(x) {

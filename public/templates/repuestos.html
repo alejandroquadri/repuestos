@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-show="formul">
   <h1>Pedido de repuestos</h1>
 
   <form focus ng-submit="submit()" name="form">
@@ -67,63 +67,61 @@
 
 <div class="container" ng-show="tabla">
 
-  <form>
     <div class="row">
-      <div class="form-group">
 
-        <div class="col-md-3">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="check.completo">
-              Completo
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" ng-model="check.encargado">
-              Encargado
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="checkbox ">
-            <label>
-              <input type="checkbox" ng-model="check.suspendido">
-              Suspendido
-            </label>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="checkbox ">
-            <label>
-              <input type="checkbox" ng-model="check.pendiente">
-              Pendiente
-            </label>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="form-group row">
-        <div class="col-md-12">
+      <div class="col-md-3">
           <div class="input-group">
             <div class="input-group-addon"><i class="fa fa-search"></i></div>
             <input type="text" class="form-control" placeholder="Busqueda" ng-model="search">
           </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="check.completo">
+            Completo
+          </label>
         </div>
       </div>
+
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="check.encargado">
+            Encargado
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="check.suspendido">
+            Suspendido
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="check.pendiente">
+            Pendiente
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <button class="btn btn-default btn-sm" ng-click="formul = !formul">
+          <span ng-show="formul"  class="fa fa-expand" aria-hidden="true"></span>
+          <span ng-show="!formul" class="fa fa-compress" aria-hidden="true"></span>
+        </button>
+      </div>
+
     </div>
+    <br>
 
-
- </form>
 
   <table class="table table-striped table-hover">
     <thead>
@@ -147,7 +145,10 @@
         <td>{{repuesto.destino}}</td>
         <td>{{repuesto.muestra}}</td>
         <td>
-          <select ng-model="repuesto.status" ng-options="status for status in tipoStatus" ng-change="cambioStatus(repuesto)">
+          <select ng-model="repuesto.status" ng-options="status for status in tipoStatus" ng-change="cambioStatus(repuesto)"
+          ng-class="{'pendiente': repuesto.status === 'Pendiente','suspendido': repuesto.status === 'Suspendido',
+                    'encargado': repuesto.status === 'Encargado','completo': repuesto.status === 'Completo'}"
+          class="status">
           </select>
         </td>
       </tr>

@@ -29,7 +29,7 @@
 
       <div class="form-group col-md-6">
         <label for="proveedor">Proveedor</label>
-        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor" required>
+        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor" name="proveedor" required>
       </div>
 
     </div>
@@ -38,18 +38,18 @@
 
       <div class="form-group col-md-3">
         <label for="cantidad">Cantidad</label>
-        <input type="number" class="form-control" id="cantidad" ng-model="formulario.cantidad" required>
+        <input type="number" class="form-control" id="cantidad" ng-model="formulario.cantidad" name="cantidad" required>
       </div>
 
       <div class="form-group col-md-3">
         <label for="unidad">Unidad</label>
-        <select class="form-control" id="unidad" ng-model="formulario.unidad" ng-options="unidad for unidad in unidades | orderBy:'toString()'" required>
+        <select class="form-control" id="unidad" ng-model="formulario.unidad" ng-options="unidad for unidad in unidades | orderBy:'toString()'" name="unidad" required>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label for="muestra">Muestra</label>
-        <select class="form-control" id="muestra" ng-model="formulario.muestra" required>
+        <select class="form-control" id="muestra" ng-model="formulario.muestra" name="muestra" required>
           <option value="si">si</option>
           <option value="no">no</option>
         </select>
@@ -58,7 +58,7 @@
 
 
     <button type="submit" class="btn btn-primary"
-    ng-disabled="form.tipoItem.$invalid || form.detalle.$invalid || form.destino.$invalid" >
+    ng-disabled="form.tipoItem.$invalid || form.detalle.$invalid || form.destino.$invalid || form.proveedor.$invalid || form.cantidad.$invalid || form.unidad.$invalid || form.muestra.$invalid" >
     Aceptar</button>
   </form>
 

@@ -41,7 +41,7 @@ angular.module('RepuestosApp')
   }
 
   $scope.sortType = 'fecha'; // set the default sort type
-  $scope.sortReverse = false;  // set the default sort order
+  $scope.sortReverse = true;  // set the default sort order
   $scope.search = '';     // set the default search/filter term
 
 

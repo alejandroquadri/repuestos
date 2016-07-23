@@ -21,7 +21,7 @@
   border: none;
 }
 
-/*Tabla con titulos fijos*/
+/*Tabla Bootstrap 3 con titulos fijos*/
 
 tbody {
     display:block;
@@ -30,9 +30,11 @@ tbody {
 }
 thead, tbody tr {
     display:table;
-    width:100%;
+    width:99%;
     table-layout:fixed;
 }
 thead {
-    width: calc( 100% - 1em )
+    width: calc( 99% - 1em )
 }
+
+/*hasta aca lo de los titulos fijos*/

@@ -127,7 +127,7 @@
     <thead>
       <tr>
         <th ng-repeat="titulo in ['Fecha','Tipo','Detalle','Cantidad','Unidad','Proveedor','Destino','Muestra','Status']"
-        ng-click="sort(titulo)">
+        ng-click="sort(titulo)"  ng-class="{'col-sm-3':titulo ==='Detalle','col-sm-1':titulo !=='Detalle'}">
             {{titulo}}
             <span ng-show="sortType == (titulo | lowercase) && !sortReverse" class="fa fa-caret-down"></span>
             <span ng-show="sortType == (titulo | lowercase) && sortReverse" class="fa fa-caret-up"></span>
@@ -136,15 +136,15 @@
     </thead>
     <tbody>
       <tr ng-repeat="repuesto in repuestos | orderBy:sortType:sortReverse | filter:search | filtroStatus:check">
-        <td>{{repuesto.fecha | date :  "dd/MM/yy"}}</td>
-        <td>{{repuesto.tipo}}</td>
-        <td>{{repuesto.detalle}}</td>
-        <td>{{repuesto.cantidad}}</td>
-        <td>{{repuesto.unidad}}</td>
-        <td>{{repuesto.proveedor}}</td>
-        <td>{{repuesto.destino}}</td>
-        <td>{{repuesto.muestra}}</td>
-        <td>
+        <td class="col-sm-1">{{repuesto.fecha | date :  "dd/MM/yy"}}</td>
+        <td class="col-sm-1">{{repuesto.tipo}}</td>
+        <td class="col-sm-4">{{repuesto.detalle}}</td>
+        <td class="col-sm-1">{{repuesto.cantidad}}</td>
+        <td class="col-sm-1">{{repuesto.unidad}}</td>
+        <td class="col-sm-1">{{repuesto.proveedor}}</td>
+        <td class="col-sm-1">{{repuesto.destino}}</td>
+        <td class="col-sm-1">{{repuesto.muestra}}</td>
+        <td class="col-sm-1">
           <select ng-model="repuesto.status" ng-options="status for status in tipoStatus" ng-change="cambioStatus(repuesto)"
           ng-class="{'pendiente': repuesto.status === 'Pendiente','suspendido': repuesto.status === 'Suspendido',
                     'encargado': repuesto.status === 'Encargado','completo': repuesto.status === 'Completo'}"

@@ -29,7 +29,7 @@
 
       <div class="form-group col-md-6">
         <label for="proveedor">Proveedor</label>
-        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor" name="proveedor" required>
+        <input type="text" class="form-control" id="proveedor" ng-model="formulario.proveedor" name="proveedor">
       </div>
 
     </div>
@@ -58,7 +58,7 @@
 
 
     <button type="submit" class="btn btn-primary"
-    ng-disabled="form.tipoItem.$invalid || form.detalle.$invalid || form.destino.$invalid || form.proveedor.$invalid || form.cantidad.$invalid || form.unidad.$invalid || form.muestra.$invalid" >
+    ng-disabled="form.tipoItem.$invalid || form.detalle.$invalid || form.destino.$invalid || form.cantidad.$invalid || form.unidad.$invalid || form.muestra.$invalid" >
     Aceptar</button>
   </form>
 

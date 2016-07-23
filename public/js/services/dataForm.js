@@ -20,9 +20,20 @@ angular.module('RepuestosApp')
       'Varilla Roscada',
       'Tela Esmaril',
       'WD 40',
-      'Penetric',
+      'Penetrit',
       'Acople Rapido',
-      'Valvula'
+      'Valvula',
+      'Reten / O-ring',
+      'Aro seeger',
+      'Contactor',
+      'Otro',
+      'Chapa',
+      'Hierro',
+      'Aceite',
+      'Limite de carrera',
+      'Motor',
+      'Sello',
+      'Herramienta'
     ]
 
     o.maquinas = [
@@ -35,7 +46,8 @@ angular.module('RepuestosApp')
       'Biseladora',
       'Elba',
       'Desbañadora',
-      'Cortadora'
+      'Cortadora',
+      'Otro'
     ]
 
     o.unidades = [

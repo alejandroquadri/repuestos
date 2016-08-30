@@ -23,7 +23,7 @@ angular.module('RepuestosApp')
       'Penetrit',
       'Acople Rapido',
       'Valvula',
-      'Reten / O-ring',
+      'Reten / O-ring / Guarnición / Guardapolvo',
       'Aro seeger',
       'Contactor',
       'Otro',
@@ -33,7 +33,28 @@ angular.module('RepuestosApp')
       'Limite de carrera',
       'Motor',
       'Sello',
-      'Herramienta'
+      'Herramienta',
+      'Cadenas',
+      'Correas',
+      'Rodamiento',
+      'Repuestos Electricos',
+      'Relé',
+      'Neumática (conectores, tubos, etc)',
+      'Hidráulica',
+      'Filtros aire/aceite',
+      'Repuestos broncería (llaves esféricas, teflón, caños )',
+      'Corona',
+      'Piñon',
+      'Tornería',
+      'Manguera',
+      'Silastic cartucho',
+      'Cable eléctrico',
+      'Cable de acero',
+      'Prensa cable',
+      'Lámpara',
+      'Pintura',
+      'Pinceles',
+      'Cinta aisladora'
     ]
 
     o.maquinas = [
@@ -47,7 +68,10 @@ angular.module('RepuestosApp')
       'Elba',
       'Desbañadora',
       'Cortadora',
-      'Otro'
+      'Otro',
+      'Cargador',
+      'Granalladora',
+      'Cintas'
     ]
 
     o.unidades = [
